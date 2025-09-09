@@ -108,15 +108,17 @@ margin:6px;
 border-radius:15px;
 display:flex;
 }
-section.product fieldset img:hover{
-/* codigo css desnecessario em comentario pode ser reutilizado
+
+/* 
+section.product fieldset img:hover{ codigo css desnecessario em comentario pode ser reutilizado
 width: 420px;
 height:420px;
 border-radius:15px;
-outline: 1px solid red; */ 
+outline: 1px solid red; 
 border-radius: 50%;
-background:#706666;
-}
+background:#706666;} */ 
+
+
 footer{
 background:#690609;
 bottom:0;
@@ -225,10 +227,10 @@ margin:7px;
 border-radius:15px;
 display:flex;
 }
-section.produtos img:hover {
-border-radius: 50%;
-background:#706666;
-}
+
+/*section.produtos img:hover { border-radius: 50%;
+background:#706666;} */
+
 section.produtos fieldset{
 margin-bottom: 15px;
 }
@@ -247,18 +249,18 @@ font-size: xx-large;
 background: none;
 }
 section.produtos fieldset.a{
-border-left: none;
-border-right: none;
+border: none;
 }
 section.produtos fieldset.c{
-border-right: none;
+border: none;
 }
 section.produtos fieldset.b{
-border-left: none;
+border: none;
 }
-section.produtos fieldset:hover{
-background-color: rgb(99, 93, 93);
-}
+/* section.produtos fieldset:hover {
+  background-color: rgb(99, 93, 93);
+  border: none;
+}*/
 section.produtos fieldset legend{
 font-weight: 400;
 color:#eee7e7;
@@ -326,7 +328,24 @@ section.sac input:focus{
 outline: none;
 border:none;
 }
+@media (max-width: 600px){
+section.produtos img {
+  width: 375px;
+  height: 80%;
+  padding: 5px;
+  border-radius: 15px;
+}
+section.product fieldset img{
+width: 375px;
+height: 80%;
+padding: 5px;
+border-radius: 15px;
 
+}
+section.product fieldset{
+border:none;
+}
+}
 @media (min-width:1025px) {
 section.produtos img{
 width:388px;
