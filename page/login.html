@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="Guilherme Carvalho" />
+<title>LOGIN - Fight Club</title>
+<meta name="description" content="Login de usuário da loja Fight Club." />
+<link rel="stylesheet" href="../script/css/style.css" />
+<link rel="icon" href="../../assets/img/logo/fight.png" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" />
+</head>
+<body>
+<header>
+<h1>
+<img width="32px" src="../../assets/img/logo/fight.png" onclick="location.href='../../script/a-loja-ecomerce.html'" />
+</h1>
+</header>
+<main class="login-container">
+<center>
+<h2>Entrar na sua conta</h2>
+<form id="loginForm">
+<input type="text" id="usuario" name="usuario" placeholder="Usuário" required><br><br>
+<input type="password" id="senha" name="senha" placeholder="Senha" required><br><br>
+<button type="submit" class="btn">Entrar</button>
+</form>
+<p>Ainda não tem conta?
+<a href="../path/cadastre-se.html">Cadastre-se</a>
+</p>
+    </center>
+  </main>
+  
+  <footer>
+    <h2>
+      <img width="32px" src="../../assets/img/logo/fight.png" onclick="location.href='../../script/a-loja-ecomerce.html'" />
+    </h2>
+    <p>&COPY; Fight Club 2025</p>
+  </footer>
+  
+  <!-- JS -->
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
+      
+      // ⚠️ Exemplo simples - aqui você pode trocar pela validação real no backend
+      if (usuario === "admin" && senha === "1234") {
+        sessionStorage.setItem("logado", "true");
+        alert("Login realizado com sucesso!");
+        window.location.href = "../../page/user-profile.html";
+      } else {
+        alert("Usuário ou senha incorretos!");
+      }
+    });
+  </script>
+  
+</body>
+
+</html>

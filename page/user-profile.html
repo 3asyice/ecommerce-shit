@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Guilherme Carvalho" />
+  <title>FIGHT CLUB STORE</title>
+  <meta name="description" content="Uma loja e-comerce." />
+  <link rel="stylesheet" href="../../script/css/style.css" />
+  <link rel="icon" href="../assets/img/logo/fight.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" />
+  <style>
+    .user-profile {
+      position: absolute;
+      display: block;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+    }
+    
+    .user-profile img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #333;
+    }
+    
+    .user-profile input {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // Proteção da página
+    window.addEventListener("load", () => {
+      if (sessionStorage.getItem("logado") !== "true") {
+        window.location.href = "../../page/login.html?redirect=" + encodeURIComponent(window.location.href);
+      }
+      
+      // Carregar imagem salva no localStorage
+      const savedImage = localStorage.getItem("userProfileImage");
+      if (savedImage) {
+        document.getElementById("profilePicHeader").src = savedImage;
+        document.getElementById("profilePicMenu").src = savedImage;
+      }
+    });
+    
+    function logout() {
+      sessionStorage.removeItem("logado");
+      window.location.href = "../../page/login.html";
+    }
+    
+    // Função para trocar foto
+    function changeProfilePic(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imgData = e.target.result;
+          // Atualiza as duas imagens
+          document.getElementById("profilePicHeader").src = imgData;
+          document.getElementById("profilePicMenu").src = imgData;
+          // Salva no storage
+          localStorage.setItem("userProfileImage", imgData);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+  
+  <header>
+<script>
+  window.addEventListener("load", () => {
+    if (sessionStorage.getItem("logado") !== "true") {
+      // Redireciona de volta pro login
+      window.location.href = "../../page/login.html?redirect=" + encodeURIComponent(window.location.href);
+    }
+  });
+  
+  function logout() {
+  sessionStorage.removeItem("logado");
+  window.location.href = "../../page/login.html";
+}
+
+</script>
+
+    <h1><img width="32px" src="../assets/img/logo/fight.png"></h1>
+    <input id="search" type="text" placeholder="Buscar na loja...">
+    
+    <!-- Foto no header -->
+    <button onclick="menu()">
+      <img id="profilePicHeader" width="45px" height="45px" style="border-radius:50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj0drcQrn_B4edLYGl4atpGvuR3suw5a2RF6TJimDRqg&s=10" alt="Foto de Perfil">
+    </button>
+    
+    <section class="main_menu" id="main_menu">
+      <button onclick="menu()">❌</button>
+      <!-- Foto no menu -->
+      <br><br>
+      <div class="user-profile" onclick="document.getElementById('fileInput').click()">
+        <img id="profilePicMenu" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj0drcQrn_B4edLYGl4atpGvuR3suw5a2RF6TJimDRqg&s=10" alt="Foto de Perfil">
+        <input type="file" id="fileInput" accept="image/*" onchange="changeProfilePic(event)">
+      </div>
+      
+      <!-- Menu -->
+      <button id="btn">HOME</button>
+      <button id="btn" onclick="location.href='../script/path/sobre.html'">SOBRE</button>
+      <button id="btn" onclick="location.href='../script/path/produtos.html'">PRODUTOS</button>
+      <button id="btn" onclick="location.href='../script/path/sac.html'">SAC</button>
+      <button id="btn" onclick="location.href='../script/path/contato.html'">CONTATO</button>
+      <button id="btn" onclick="location.href='../script/path/cadastre-se.html'">CADASTRAR-SE</button>
+      <button id="btn" onclick="logout()">SAIR</button>
+    </section>
+  </header>
+  
+  <section class="a">
+    <center>
+      <p>Bem-vindo ao Fight Club onde é bom de comprar.</p>
+      <p class="a">Descubra uma vasta variedade de tênis de todos os tamanhos.</p>
+    </center>
+  </section>
+  
+  <section class="propaganda">
+    <center>
+      <img loading="lazy" id="imagem" width="95%" height="95%" src="../assets/img/propaganda/3.png" onclick="location.href='../script/path/produtos.html'" />
+    </center>
+    <div class="button_next_before">
+      <center>
+        <button class="btn" onclick="back()">&LeftArrow; VOLTAR</button>
+        <button class="btn" onclick="next()">PRÓXIMO &RightArrow;</button>
+      </center>
+    </div>
+  </section>
+  
+  <section class="product">
+    <fieldset>
+      <legend>ADIDAS</legend>
+      <center>
+        <img loading="lazy" onclick="location.href='../script/marca/adidas/produtos_adidas.html'" src="../assets/img/adidas/01.jpeg" type="img/jpeg" />
+    </fieldset>
+    <fieldset>
+      <legend>NIKE</legend>
+      <img loading="lazy" onclick="location.href='../script/marca/nike/produtos_nike.html'" src="../assets/img/nike/01.jpeg" type="img/webp" />
+    </fieldset>
+    <fieldset>
+      <legend>PUMA</legend>
+      <img loading="lazy" onclick="location.href='../script/marca/puma/produtos_puma.html'" src="../assets/img/puma/01.jpeg" type="img/jpeg" />
+    </fieldset>
+    </center>
+    </fieldset>
+  </section>
+  
+  <p>Cadastre-se para ser um cliente de nossos produtos.</p>
+  <footer>
+    <h2><img width="32px" src="../assets/img/logo/fight.png"></h2>
+    <p>&COPY; Fight Club 2025</p>
+  </footer>
+  
+  <script type="text/javascript" defer async crossorigin="anonymous" src="../../script/js/script.js"></script>
+</body>
+
+</html>
