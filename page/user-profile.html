@@ -13,8 +13,8 @@
   <style>
     .user-profile {
       position: absolute;
-      display: block;
-      top: 64px;
+      display: flex;
+      top: 84px;
       right: 32px;
       cursor: pointer;
     }
@@ -94,16 +94,16 @@ reader.readAsDataURL(file);
     </button>
     
     <section class="main_menu" id="main_menu">
-      <button onclick="menu()">Sair do menu</button>
-      <!-- Foto no menu ❌-->
+      <button onclick="menu()">❌</button>
+      <!-- Foto no menu-->
       <br><br>
-      <div class="user-profile" onclick="document.getElementById('fileInput').click()">
-        <img id="profilePicMenu" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj0drcQrn_B4edLYGl4atpGvuR3suw5a2RF6TJimDRqg&s=10" alt="Foto de Perfil">
-        <input type="file" id="fileInput" accept="image/*" onchange="changeProfilePic(event)">
-      </div>
+<div class="user-profile" onclick="document.getElementById('fileInput').click()">
+<img id="profilePicMenu" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj0drcQrn_B4edLYGl4atpGvuR3suw5a2RF6TJimDRqg&s=10" alt="Foto de Perfil">
+<input type="file" id="fileInput" accept="image/*" onchange="changeProfilePic(event)">
+</div>
       
       <!-- Menu -->
-      <button id="btn">HOME</button>
+<button id="btn">HOME</button>
       <button id="btn" onclick="location.href='../script/path/sobre.html'">SOBRE</button>
       <button id="btn" onclick="location.href='../script/path/produtos.html'">PRODUTOS</button>
       <button id="btn" onclick="location.href='../script/path/sac.html'">SAC</button>
